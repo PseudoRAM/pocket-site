@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Grommet } from 'grommet'
 import styled from 'styled-components'
+import ReactFullpage from '@fullpage/react-fullpage'
 import AppBar from './components/AppBar'
-import Background from './images/pattern-c.jpg'
+import LandingSection from './components/LandingSection'
+import Background from './images/pattern.jpg'
 
 const theme = {
     global: {
@@ -12,15 +14,20 @@ const theme = {
         },
         font: {
             family: 'Roboto',
-            size: '14px',
+            size: '13px',
             height: '20px',
         },
     },
     button: {
         color: '#ffffff',
         border: {
-            width: '2px',
-            radius: '10px',
+            width: '1px',
+            radius: '6px',
+        },
+    },
+    text: {
+        medium: {
+            size: '13px',
         },
     },
 }
@@ -30,7 +37,7 @@ const AppHolder = styled.div`
     margin: 0;
     padding: 0;
     width: 100vw;
-    min-height: 100vw;
+    min-height: 100vh;
 `
 
 class App extends Component {
@@ -39,6 +46,19 @@ class App extends Component {
             <AppHolder className="App">
                 <Grommet theme={theme}>
                     <AppBar />
+                    <ReactFullpage
+                        scrollingSpeed={1400}
+                        render={({ state, fullpageApi }) => {
+                            return (
+                                <ReactFullpage.Wrapper>
+                                    <LandingSection />
+                                    <div className="section">
+                                        <p>Section 2</p>
+                                    </div>
+                                </ReactFullpage.Wrapper>
+                            )
+                        }}
+                    />
                 </Grommet>
             </AppHolder>
         )
