@@ -3,7 +3,10 @@ import { Grommet } from 'grommet'
 import styled from 'styled-components'
 import ReactFullpage from '@fullpage/react-fullpage'
 import AppBar from './components/AppBar'
+import AnimatedProjector from './components/AnimatedProjector'
 import LandingSection from './components/LandingSection'
+import StatsSection1 from './components/StatsSection1'
+import StatsSection2 from './components/StatsSection2'
 import Background from './images/pattern.jpg'
 
 const theme = {
@@ -41,20 +44,37 @@ const AppHolder = styled.div`
 `
 
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            projector: <AnimatedProjector position={-1} />,
+        }
+
+        this.scrollChange = this.scrollChange.bind(this)
+    }
+
+    scrollChange(origin, destination, direction) {
+        this.setState({
+            projector: <AnimatedProjector position={destination.index} />,
+        })
+    }
+
     render() {
         return (
             <AppHolder className="App">
                 <Grommet theme={theme}>
                     <AppBar />
+                    {this.state.projector}
                     <ReactFullpage
                         scrollingSpeed={1400}
+                        parallax
+                        onLeave={this.scrollChange}
                         render={({ state, fullpageApi }) => {
                             return (
                                 <ReactFullpage.Wrapper>
                                     <LandingSection />
-                                    <div className="section">
-                                        <p>Section 2</p>
-                                    </div>
+                                    <StatsSection1 />
+                                    <StatsSection2 />
                                 </ReactFullpage.Wrapper>
                             )
                         }}

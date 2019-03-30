@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Button } from 'grommet'
 import styled from 'styled-components'
-import Product from '../images/product.png'
-import Element from '../images/top_element.png'
+import Product from '../images/product2.png'
+import Element from '../images/top_element-c.png'
 import Arrow from '../images/arrow.png'
 
 const Section = styled.div`
