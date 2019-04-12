@@ -41,6 +41,12 @@ const TextHolderLeft = styled.div`
     top: calc(50vh - 25px);
     left: calc(50vw - 240px - 76px);
     position: absolute;
+
+    @media (max-width: 630px) {
+        text-align: center;
+        top: calc(50vh + 200px);
+        left: calc(50vw - 105px);
+    }
 `
 
 const TextHolderRight = styled.div`
@@ -49,6 +55,12 @@ const TextHolderRight = styled.div`
     top: calc(50vh - 25px);
     left: calc(50vw + 112px);
     position: absolute;
+
+    @media (max-width: 630px) {
+        text-align: center;
+        top: calc(50vh + 120px);
+        left: calc(50vw - 65px);
+    }
 `
 
 const Text2 = styled.h2`
