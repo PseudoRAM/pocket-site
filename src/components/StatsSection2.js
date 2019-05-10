@@ -17,10 +17,10 @@ const Section = styled.div`
     background-position: 0 calc(-200vh);
 `
 
-const Text1 = styled.h2`
+const Text1 = styled.h1`
     position: absolute;
     width: 200px;
-    text-align: center;
+    text-align: left;
     top: 80px;
     font-weight: 100;
 
@@ -32,6 +32,21 @@ const Text1 = styled.h2`
     letter-spacing: 5px;
     left: calc(50vw - 100px);
     color: #fff;
+
+    font-weight: 500;
+    margin: 0;
+    font-size: 23px;
+    line-height: 23px;
+    color: #fff;
+`
+
+const Text2 = styled.span`
+    width: 100%;
+    font-weight: 100;
+    margin: 0;
+    font-size: 24px;
+    line-height: 24px;
+    color: #fff;
 `
 
 class StatsSection2 extends Component {
@@ -39,7 +54,10 @@ class StatsSection2 extends Component {
         return (
             <Section className="section">
                 <Content>
-                    <Text1 />
+                    <Text1>
+                        Finally, a pocket sized projector
+                        <Text2> that requires no fiddling around</Text2>
+                    </Text1>
                 </Content>
             </Section>
         )

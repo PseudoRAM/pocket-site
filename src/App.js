@@ -55,7 +55,12 @@ class App extends Component {
 
     scrollChange(origin, destination, direction) {
         this.setState({
-            projector: <AnimatedProjector position={destination.index} />,
+            projector: (
+                <AnimatedProjector
+                    position={destination.index}
+                    direction={direction}
+                />
+            ),
         })
     }
 

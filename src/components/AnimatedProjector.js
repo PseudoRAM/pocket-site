@@ -42,27 +42,77 @@ const ProjectorHolder1 = styled.div`
     }
 `
 
-const ProjectorHolder2 = styled.div`
+const ProjectorHolder2 = `
     top: calc(50vh - 20px);
     height: 156px;
     width: 70px;
     left: calc(50vw - 35px);
     ${constantStyles}
-    animation: animationProj1 1.4s;
-    @keyframes animationProj1 {
+`
+
+const ProjectorHolderDown2 = styled.div`
+    ${ProjectorHolder2}
+    animation: animationProj1a 1.4s;
+    @keyframes animationProj1a {
         0% {
             top: 75vh;
         }
         100% {
             top: calc(50vh - 20px);
+            width: 70px;
+            height: 156px;
+        }
+    }
+`
+
+const ProjectorHolderUp2 = styled.div`
+    ${ProjectorHolder2}
+    animation: animationProj1b 1.4s;
+    @keyframes animationProj1b {
+        0% {
+            width: 120px;
+            height: 200px;
+            left: calc(50vw - 45px);
+            top: calc(50vh - 40px);
+        }
+        100% {
+            width: 70px;
+            height: 156px;
+        }
+    }
+`
+
+const ProjectorHolder3 = `
+    width: 120px;
+    height: 200px;
+    left: calc(50vw - 45px);
+    top: calc(50vh - 40px);
+    ${constantStyles}
+`
+
+const ProjectorHolderDown3 = styled.div`
+    ${ProjectorHolder3}
+    animation: animationProj2a 1.4s;
+    @keyframes animationProj2a {
+        0% {
+            top: calc(50vh - 20px);
+            height: 156px;
+            width: 70px;
+            left: calc(50vw - 35px);
+        }
+        100% {
+            width: 120px;
+            height: 200px;
+            left: calc(50vw - 45px);
+            top: calc(50vh - 40px);
         }
     }
 `
 
 const states = [
-    <ProjectorHolder1 />,
-    <ProjectorHolder2 />,
-    <ProjectorHolder2 />,
+    [<ProjectorHolder1 />, <ProjectorHolder1 />],
+    [<ProjectorHolderUp2 />, <ProjectorHolderDown2 />],
+    [<ProjectorHolder3 />, <ProjectorHolderDown3 />],
 ]
 
 class AnimatedProjector extends Component {
@@ -72,7 +122,9 @@ class AnimatedProjector extends Component {
                 {this.props.position === -1 ? (
                     <ProjectorHolderInitial />
                 ) : (
-                    states[this.props.position]
+                    states[this.props.position][
+                        this.props.direction === 'up' ? 0 : 1
+                    ]
                 )}
             </FullScreenPosition>
         )
