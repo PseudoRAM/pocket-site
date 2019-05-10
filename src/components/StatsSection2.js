@@ -22,10 +22,6 @@ const Text1 = styled.h1`
     width: 200px;
     text-align: left;
     top: 80px;
-    font-weight: 100;
-
-    margin: 0;
-    font-size: 10px;
     top: calc((50vh - 190px / 2 - 40px) * 0.66);
 
     line-height: 20px;

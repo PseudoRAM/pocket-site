@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Projector from '../images/projector.png'
+import Projector from '../images/projector4.png'
+
+const SMALL_SIZE = ['70px', '156px']
+const BIG_SIZE = ['210px', '370px']
 
 const FullScreenPosition = styled.div`
     position: absolute;
@@ -19,17 +22,17 @@ const constantStyles = `
 
 const ProjectorHolderInitial = styled.div`
     top: 75vh;
-    left: calc(50vw - 35px);
-    height: 156px;
-    width: 70px;
+    left: calc(50vw - (${SMALL_SIZE[0]} / 2));
+    height: ${SMALL_SIZE[1]};
+    width: ${SMALL_SIZE[0]};
     ${constantStyles}
 `
 
 const ProjectorHolder1 = styled.div`
     top: 75vh;
-    left: calc(50vw - 35px);
-    height: 156px;
-    width: 70px;
+    left: calc(50vw - (${SMALL_SIZE[0]} / 2));
+    height: ${SMALL_SIZE[1]};
+    width: ${SMALL_SIZE[0]};
     ${constantStyles}
     animation: animationProj0 1.4s;
     @keyframes animationProj0 {
@@ -44,9 +47,9 @@ const ProjectorHolder1 = styled.div`
 
 const ProjectorHolder2 = `
     top: calc(50vh - 20px);
-    height: 156px;
-    width: 70px;
-    left: calc(50vw - 35px);
+    height: ${SMALL_SIZE[1]};
+    width: ${SMALL_SIZE[0]};
+    left: calc(50vw - ( ${SMALL_SIZE[0]} / 2 ));
     ${constantStyles}
 `
 
@@ -59,8 +62,8 @@ const ProjectorHolderDown2 = styled.div`
         }
         100% {
             top: calc(50vh - 20px);
-            width: 70px;
-            height: 156px;
+            width: ${SMALL_SIZE[0]};
+            height: ${SMALL_SIZE[1]};
         }
     }
 `
@@ -70,22 +73,22 @@ const ProjectorHolderUp2 = styled.div`
     animation: animationProj1b 1.4s;
     @keyframes animationProj1b {
         0% {
-            width: 120px;
-            height: 200px;
-            left: calc(50vw - 45px);
+            width: ${BIG_SIZE[0]};
+            height: ${BIG_SIZE[1]};
+            left: calc(50vw - (${BIG_SIZE[0]} / 2));
             top: calc(50vh - 40px);
         }
         100% {
-            width: 70px;
-            height: 156px;
+            width: ${SMALL_SIZE[0]};
+            height: ${SMALL_SIZE[1]};
         }
     }
 `
 
 const ProjectorHolder3 = `
-    width: 120px;
-    height: 200px;
-    left: calc(50vw - 45px);
+    width: ${BIG_SIZE[0]};
+    height: ${BIG_SIZE[1]};
+    left: calc(50vw - ( ${BIG_SIZE[0]} / 2 ));
     top: calc(50vh - 40px);
     ${constantStyles}
 `
@@ -96,23 +99,31 @@ const ProjectorHolderDown3 = styled.div`
     @keyframes animationProj2a {
         0% {
             top: calc(50vh - 20px);
-            height: 156px;
-            width: 70px;
-            left: calc(50vw - 35px);
+            height: ${SMALL_SIZE[1]};
+            width: ${SMALL_SIZE[0]};
+            left: calc(50vw - (${SMALL_SIZE[0]} / 2));
         }
         100% {
-            width: 120px;
-            height: 200px;
-            left: calc(50vw - 45px);
+            width: ${BIG_SIZE[0]};
+            height: ${BIG_SIZE[1]};
+            left: calc(50vw - (${BIG_SIZE[0]} / 2));
             top: calc(50vh - 40px);
         }
+    }
+`
+
+const ProjectorHolderUp3 = styled.div`
+    ${ProjectorHolder3}
+    animation: animationProj2b 1.4s;
+    @keyframes animationProj2b {
     }
 `
 
 const states = [
     [<ProjectorHolder1 />, <ProjectorHolder1 />],
     [<ProjectorHolderUp2 />, <ProjectorHolderDown2 />],
-    [<ProjectorHolder3 />, <ProjectorHolderDown3 />],
+    [<ProjectorHolderUp3 />, <ProjectorHolderDown3 />],
+    [<ProjectorHolderUp3 />, <ProjectorHolderUp3 />],
 ]
 
 class AnimatedProjector extends Component {

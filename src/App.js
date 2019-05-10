@@ -7,6 +7,7 @@ import AnimatedProjector from './components/AnimatedProjector'
 import LandingSection from './components/LandingSection'
 import StatsSection1 from './components/StatsSection1'
 import StatsSection2 from './components/StatsSection2'
+import StatsSection3 from './components/StatsSection3'
 import Background from './images/pattern.jpg'
 
 const theme = {
@@ -79,7 +80,8 @@ class App extends Component {
                                 <ReactFullpage.Wrapper>
                                     <LandingSection />
                                     <StatsSection1 />
-                                    <StatsSection2 />
+                                    <StatsSection2 />,
+                                    <StatsSection3 />,
                                 </ReactFullpage.Wrapper>
                             )
                         }}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Element from '../images/top_element-c.png'
+import Space from '../images/space.png'
 
 const Content = styled.div`
     position: absolute;
@@ -11,26 +11,38 @@ const Content = styled.div`
 `
 
 const Section = styled.div`
-    background-image: url(${Element});
+    background-image: url(${Space});
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 0 calc(-200vh);
+`
+//background-position: 0 calc(-200vh);
+
+const InfoHolder = styled.div`
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100vw;
 `
 
-const Text1 = styled.h2`
-    position: absolute;
-    width: 200px;
+const Text1 = styled.h1`
+    color: #fff;
     text-align: center;
-    top: 80px;
-    font-weight: 100;
 
+    font-weight: 500;
     margin: 0;
-    font-size: 10px;
-    top: calc((50vh - 190px / 2 - 40px) * 0.66);
+    font-size: 23px;
+    line-height: 23px;
 
-    line-height: 20px;
-    letter-spacing: 5px;
-    left: calc(50vw - 100px);
+    width: calc(100% - 40px);
+    margin: 0 20px;
+`
+
+const Text2 = styled.span`
+    width: 100%;
+    font-weight: 100;
+    margin: 0;
+    font-size: 24px;
+    line-height: 24px;
     color: #fff;
 `
 
@@ -39,7 +51,15 @@ class StatsSection3 extends Component {
         return (
             <Section className="section">
                 <Content>
-                    <Text1>Test</Text1>
+                    <InfoHolder>
+                        <Text1>
+                            Simply connects to any phone or laptop
+                            <br />
+                            <Text2>
+                                in under 5 seconds and starts projecting.
+                            </Text2>
+                        </Text1>
+                    </InfoHolder>
                 </Content>
             </Section>
         )
