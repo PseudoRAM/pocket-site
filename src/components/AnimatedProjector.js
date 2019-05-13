@@ -116,6 +116,59 @@ const ProjectorHolderUp3 = styled.div`
     ${ProjectorHolder3}
     animation: animationProj2b 1.4s;
     @keyframes animationProj2b {
+        0% {
+            top: calc(50vh - (${BIG_SIZE[1]} / 3));
+        }
+        100% {
+            top: calc(50vh - 40px);
+        }
+    }
+`
+
+const ProjectorHolder4 = `
+    width: ${BIG_SIZE[0]};
+    height: ${BIG_SIZE[1]};
+    left: calc(50vw - ( ${BIG_SIZE[0]} / 2 ));
+    top: calc(50vh - ( ${BIG_SIZE[1]} / 3));
+    opacity: 1;
+    ${constantStyles}
+`
+
+const ProjectorHolderDown4 = styled.div`
+    ${ProjectorHolder4}
+    animation: animationProj3a 1.4s;
+    @keyframes animationProj3a {
+        0% {
+            top: calc(50vh - 40px);
+        }
+        100% {
+            top: calc(50vh - (${BIG_SIZE[1]} / 3));
+        }
+    }
+`
+
+const ProjectorHolderUp4 = styled.div`
+    ${ProjectorHolder3}
+    animation: animationProj3b 1.4s;
+    @keyframes animationProj3b {
+    }
+`
+
+const ProjectorHolder5 = `
+    ${constantStyles}
+`
+
+const ProjectorHolderDown5 = styled.div`
+    ${ProjectorHolder5}
+    animation: animationProj4a 1.4s;
+    @keyframes animationProj4a {
+    }
+`
+
+const ProjectorHolderUp5 = styled.div`
+    ${ProjectorHolder3}
+    animation: animationProj4b 1.4s;
+    @keyframes animationProj4b {
     }
 `
 
@@ -123,7 +176,8 @@ const states = [
     [<ProjectorHolder1 />, <ProjectorHolder1 />],
     [<ProjectorHolderUp2 />, <ProjectorHolderDown2 />],
     [<ProjectorHolderUp3 />, <ProjectorHolderDown3 />],
-    [<ProjectorHolderUp3 />, <ProjectorHolderUp3 />],
+    [<ProjectorHolderUp4 />, <ProjectorHolderDown4 />],
+    [<ProjectorHolderUp4 />, <ProjectorHolderDown4 />],
 ]
 
 class AnimatedProjector extends Component {

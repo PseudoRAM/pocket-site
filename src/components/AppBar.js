@@ -116,6 +116,7 @@ class AppBar extends Component {
         const btns = [
             <Button
                 id="home"
+                key="b1"
                 className="menu-item"
                 label="home"
                 plain
@@ -126,6 +127,7 @@ class AppBar extends Component {
             />,
             <Button
                 id="about"
+                key="b2"
                 className="menu-item"
                 label="about"
                 plain
@@ -136,6 +138,7 @@ class AppBar extends Component {
             />,
             <Button
                 id="specs"
+                key="b3"
                 className="menu-item"
                 label="specs"
                 plain
@@ -146,6 +149,7 @@ class AppBar extends Component {
             />,
             <Button
                 id="action-btn"
+                key="b4"
                 className="menu-item"
                 label="notify me"
                 onClick={() => {}}
@@ -166,6 +170,7 @@ class AppBar extends Component {
                     }
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}
+                    children={null}
                     styles={{ sidebar: { background: '#1e2128', zIndex: 30 } }}
                 />
                 <Holder>

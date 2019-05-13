@@ -15,6 +15,7 @@ const Section = styled.div`
     background-image: url(${Space});
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center calc(40vh);
 `
 
 const DiagramHolder = styled.div`
@@ -25,7 +26,11 @@ const DiagramHolder = styled.div`
     width: calc(60vw);
     height: calc(60vw * 0.4164013015184382);
 
-    margin: calc((100vh - (60vw * 0.4164013015184382)) / 2) 20vw;
+    margin: calc((100vh - (60vw * 0.4164013015184382)) / 2 - 60px) 20vw;
+
+    @media (max-width: 630px) {
+        display: none;
+    }
 `
 
 //background-position: 0 calc(-200vh);
