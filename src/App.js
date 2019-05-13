@@ -49,6 +49,7 @@ class App extends Component {
         super(props)
         this.state = {
             projector: <AnimatedProjector position={-1} />,
+            api: null,
         }
 
         this.scrollChange = this.scrollChange.bind(this)
@@ -69,13 +70,15 @@ class App extends Component {
         return (
             <AppHolder className="App">
                 <Grommet theme={theme}>
-                    <AppBar />
+                    <AppBar api={this.state.api} />
                     {this.state.projector}
                     <ReactFullpage
                         scrollingSpeed={1400}
                         parallax
                         onLeave={this.scrollChange}
                         render={({ state, fullpageApi }) => {
+                            if (this.state.api == null)
+                                this.setState({ api: fullpageApi })
                             return (
                                 <ReactFullpage.Wrapper>
                                     <LandingSection />

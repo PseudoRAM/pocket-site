@@ -94,36 +94,6 @@ const MobileLogo = styled.div`
     margin-left: calc((70px -133px) / 2);
 `
 
-const Buttons = [
-    <Button
-        id="home"
-        className="menu-item"
-        label="home"
-        plain
-        onClick={() => {}}
-    />,
-    <Button
-        id="about"
-        className="menu-item"
-        label="about"
-        plain
-        onClick={() => {}}
-    />,
-    <Button
-        id="specs"
-        className="menu-item"
-        label="specs"
-        plain
-        onClick={() => {}}
-    />,
-    <Button
-        id="action-btn"
-        className="menu-item"
-        label="notify me"
-        onClick={() => {}}
-    />,
-]
-
 class AppBar extends Component {
     constructor(props) {
         super(props)
@@ -131,6 +101,7 @@ class AppBar extends Component {
             sidebarOpen: false,
         }
         this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this)
+        this.setButtons = this.setButtons.bind(this)
     }
 
     onSetSidebarOpen(open) {
@@ -141,6 +112,48 @@ class AppBar extends Component {
         event.preventDefault()
     }
 
+    setButtons() {
+        const btns = [
+            <Button
+                id="home"
+                className="menu-item"
+                label="home"
+                plain
+                onClick={() => {
+                    this.props.api.moveTo(1)
+                    if (this.state.sidebarOpen) this.onSetSidebarOpen(false)
+                }}
+            />,
+            <Button
+                id="about"
+                className="menu-item"
+                label="about"
+                plain
+                onClick={() => {
+                    this.props.api.moveTo(2)
+                    if (this.state.sidebarOpen) this.onSetSidebarOpen(false)
+                }}
+            />,
+            <Button
+                id="specs"
+                className="menu-item"
+                label="specs"
+                plain
+                onClick={() => {
+                    this.props.api.moveTo(3)
+                    if (this.state.sidebarOpen) this.onSetSidebarOpen(false)
+                }}
+            />,
+            <Button
+                id="action-btn"
+                className="menu-item"
+                label="notify me"
+                onClick={() => {}}
+            />,
+        ]
+        return btns
+    }
+
     render() {
         return (
             <div>
@@ -148,7 +161,7 @@ class AppBar extends Component {
                     sidebar={
                         <MobileMenuHolder>
                             <MobileLogo />
-                            {Buttons}
+                            {this.setButtons()}
                         </MobileMenuHolder>
                     }
                     open={this.state.sidebarOpen}
@@ -166,7 +179,7 @@ class AppBar extends Component {
 
                     <HeaderLogo />
                     <MobileFix>
-                        <HeaderButtons>{Buttons}</HeaderButtons>
+                        <HeaderButtons>{this.setButtons()}</HeaderButtons>
                     </MobileFix>
                 </Holder>
             </div>

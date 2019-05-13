@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import Diagram from '../images/sec5.png'
 import Space from '../images/space.png'
 
 const Content = styled.div`
@@ -15,6 +16,18 @@ const Section = styled.div`
     background-repeat: no-repeat;
     background-size: cover;
 `
+
+const DiagramHolder = styled.div`
+    background-image: url(${Diagram});
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: calc(60vw);
+    height: calc(60vw * 0.4164013015184382);
+
+    margin: calc((100vh - (60vw * 0.4164013015184382)) / 2) 20vw;
+`
+
 //background-position: 0 calc(-200vh);
 
 const InfoHolder = styled.div`
@@ -51,6 +64,7 @@ class StatsSection3 extends Component {
         return (
             <Section className="section">
                 <Content>
+                    <DiagramHolder />
                     <InfoHolder>
                         <Text1>
                             Simply connects to any phone or laptop
