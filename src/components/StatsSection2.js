@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Element from '../images/top_element-c.png'
+import Dash from '../images/dash.png'
 
 const Content = styled.div`
     position: absolute;
@@ -21,12 +22,9 @@ const Text1 = styled.h1`
     position: absolute;
     width: 200px;
     text-align: left;
-    top: 80px;
-    top: calc((50vh - 190px / 2 - 40px) * 0.66);
 
     line-height: 20px;
     letter-spacing: 5px;
-    left: calc(50vw - 100px);
     color: #fff;
 
     font-weight: 500;
@@ -34,6 +32,9 @@ const Text1 = styled.h1`
     font-size: 23px;
     line-height: 23px;
     color: #fff;
+
+    right: 64vw;
+    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 25px);
 `
 
 const Text2 = styled.span`
@@ -45,11 +46,29 @@ const Text2 = styled.span`
     color: #fff;
 `
 
+const DashHolder = styled.div`
+    background-image: url(${Dash});
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 350px;
+    height: 1.7px;
+
+    margin-top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 60px);
+    margin-right: 52vw;
+    float: right;
+
+    @media (max-width: 630px) {
+        display: none;
+    }
+`
+
 class StatsSection2 extends Component {
     render() {
         return (
             <Section className="section">
                 <Content>
+                    <DashHolder />
                     <Text1>
                         Finally, a pocket sized projector
                         <Text2> that requires no fiddling around</Text2>

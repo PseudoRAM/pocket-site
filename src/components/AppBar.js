@@ -14,7 +14,7 @@ const Holder = props => (
         background="transparent"
         elevation="none"
         style={{
-            zIndex: '1',
+            zIndex: '99',
             paddingTop: '10px',
             position: 'absolute',
             width: '100vw',
@@ -171,7 +171,7 @@ class AppBar extends Component {
                     open={this.state.sidebarOpen}
                     onSetOpen={this.onSetSidebarOpen}
                     children={null}
-                    styles={{ sidebar: { background: '#1e2128', zIndex: 30 } }}
+                    styles={{ sidebar: { background: '#1e2128', zIndex: 100 } }}
                 />
                 <Holder>
                     <MenuBthHolder>
