@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Diagram from '../images/sec5.png'
-import Space from '../images/space.png'
 
 const Content = styled.div`
     position: absolute;
@@ -11,22 +10,16 @@ const Content = styled.div`
     left: 0;
 `
 
-const Section = styled.div`
-    background-image: url(${Space});
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center calc(40vh);
-`
-
 const DiagramHolder = styled.div`
     background-image: url(${Diagram});
     background-repeat: no-repeat;
     background-size: cover;
 
-    width: calc(60vw);
-    height: calc(60vw * 0.4164013015184382);
-
-    margin: calc((100vh - (60vw * 0.4164013015184382)) / 2 - 60px) 20vw;
+    margin-top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 70px);
+    margin-left: auto;
+    margin-right: auto;
+    width: 747px;
+    height: 312px;
 
     @media (max-width: 630px) {
         display: none;
@@ -67,7 +60,7 @@ const Text2 = styled.span`
 class StatsSection3 extends Component {
     render() {
         return (
-            <Section className="section">
+            <div className="section">
                 <Content>
                     <DiagramHolder />
                     <InfoHolder>
@@ -80,7 +73,7 @@ class StatsSection3 extends Component {
                         </Text1>
                     </InfoHolder>
                 </Content>
-            </Section>
+            </div>
         )
     }
 }

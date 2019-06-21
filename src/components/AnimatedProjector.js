@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Projector from '../images/projector4.png'
+import Projector from '../images/projector4-c.png'
 
 const SMALL_SIZE = ['70px', '156px']
 const BIG_SIZE = ['210px', '370px']
@@ -76,7 +76,7 @@ const ProjectorHolderUp2 = styled.div`
             width: ${BIG_SIZE[0]};
             height: ${BIG_SIZE[1]};
             left: calc(50vw - (${BIG_SIZE[0]} / 2));
-            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 90px);
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
         }
         100% {
             width: ${SMALL_SIZE[0]};
@@ -89,7 +89,7 @@ const ProjectorHolder3 = `
     width: ${BIG_SIZE[0]};
     height: ${BIG_SIZE[1]};
     left: calc(50vw - ( ${BIG_SIZE[0]} / 2 ));
-    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 90px);
+    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
     ${constantStyles}
 `
 
@@ -107,7 +107,7 @@ const ProjectorHolderDown3 = styled.div`
             width: ${BIG_SIZE[0]};
             height: ${BIG_SIZE[1]};
             left: calc(50vw - (${BIG_SIZE[0]} / 2));
-            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 90px);
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
         }
     }
 `
@@ -120,7 +120,7 @@ const ProjectorHolderUp3 = styled.div`
             top: calc(50vh - (${BIG_SIZE[1]} / 3));
         }
         100% {
-            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 90px);
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
         }
     }
 `
@@ -139,7 +139,7 @@ const ProjectorHolderDown4 = styled.div`
     animation: animationProj3a 1.4s;
     @keyframes animationProj3a {
         0% {
-            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 90px);
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
         }
         100% {
             top: calc(50vh - (${BIG_SIZE[1]} / 3));
@@ -153,17 +153,18 @@ const ProjectorHolderUp4 = styled.div`
     @keyframes animationProj3b {
         100% {
             opacity: 1;
+            top: calc(50vh - (${BIG_SIZE[1]} / 3));
         }
         0% {
             opacity: 0;
+            top: calc(${BIG_SIZE[1]} / -2 + 80px);
         }
     }
 `
 
 const ProjectorHolder5 = `
     ${ProjectorHolder4}
-    opacity: 1;
-    z-index: 3;
+    opacity: 0;
     top: calc(${BIG_SIZE[1]} / -2 + 80px);
 `
 
@@ -173,9 +174,11 @@ const ProjectorHolderDown5 = styled.div`
     @keyframes animationProj4a {
         100% {
             opacity: 0;
+            top: calc(${BIG_SIZE[1]} / -2 + 80px);
         }
         0% {
             opacity: 1;
+            top: calc(50vh - (${BIG_SIZE[1]} / 3));
         }
     }
 `

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import Space from '../images/space.png'
+import Space from '../images/space-c.png'
 
 const BG = styled.div`
     background-image: url(/static/media/space.e70e8433.png);

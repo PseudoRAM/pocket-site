@@ -34,7 +34,16 @@ const Text1 = styled.h1`
     color: #fff;
 
     right: 64vw;
-    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 25px);
+    /* top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 25px); */
+    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 + 140px);
+
+    @media (max-width: 630px) {
+        top: 60px;
+        left: 0;
+        width: 200px;
+        margin: 0 calc(50vw - 100px);
+        text-align: center;
+    }
 `
 
 const Text2 = styled.span`
@@ -54,7 +63,8 @@ const DashHolder = styled.div`
     width: 350px;
     height: 1.7px;
 
-    margin-top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 60px);
+    /* margin-top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 60px); */
+    margin-top: calc((100vh - (60vh * 0.4164013015184382)) / 2 + 300px);
     margin-right: 52vw;
     float: right;
 
