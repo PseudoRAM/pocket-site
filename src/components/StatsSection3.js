@@ -53,7 +53,7 @@ const Text2 = styled.span`
     font-weight: 100;
     margin: 0;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 40px;
     color: #fff;
 `
 

@@ -9,6 +9,9 @@ import StatsSection1 from './components/StatsSection1'
 import StatsSection2 from './components/StatsSection2'
 import StatsSection3 from './components/StatsSection3'
 import InfoSection from './components/InfoSection'
+import DiagramSection from './components/DiagramSection'
+import SpecsSection from './components/SpecsSection'
+import NotifySection from './components/NotifySection'
 import Background from './images/pattern.jpg'
 
 const theme = {
@@ -87,6 +90,9 @@ class App extends Component {
                                     <StatsSection2 />,
                                     <StatsSection3 />,
                                     <InfoSection />,
+                                    <DiagramSection />,
+                                    <SpecsSection />,
+                                    <NotifySection />,
                                 </ReactFullpage.Wrapper>
                             )
                         }}

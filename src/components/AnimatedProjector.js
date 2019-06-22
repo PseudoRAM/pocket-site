@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import Projector from '../images/projector4-c.png'
+import ProjectorOpen from '../images/projector3-c.png'
 
 const SMALL_SIZE = ['70px', '156px']
 const BIG_SIZE = ['210px', '370px']
@@ -17,7 +18,101 @@ const constantStyles = `
     background-repeat: no-repeat;
     position: absolute;
     background-size: contain;
+    pointer-events: none;
     z-index: 3;
+`
+
+const SecondProjector = styled.div`
+    background-image: url(${ProjectorOpen});
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    z-index: 2;
+    width: 173px;
+    height: 302px;
+    opacity: 1;
+    pointer-events: none;
+
+    top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
+    left: calc(50vw - (210px / 2) + 260px);
+
+    @media (max-width: 630px) {
+        display: none;
+    }
+
+    animation: animationProj2In1 1.4s;
+    animation-delay: 0.9s;
+    animation-fill-mode: both;
+
+    @keyframes animationProj2In1 {
+        0% {
+            left: calc(50vw - (210px / 2));
+            opacity: 0;
+        }
+        100% {
+            left: calc(50vw - (210px / 2) + 260px);
+            opacity: 1;
+        }
+    }
+`
+
+const SecondProjectorOut = styled.div`
+    background-image: url(${ProjectorOpen});
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    z-index: 2;
+    width: 173px;
+    height: 302px;
+
+    top: -400px;
+    left: calc(50vw - (210px / 2) + 260px);
+    opacity: 0;
+
+    @media (max-width: 630px) {
+        display: none;
+    }
+
+    animation: animationProj2Out1 1.4s;
+    @keyframes animationProj2Out1 {
+        0% {
+            opacity: 1;
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
+        }
+        100% {
+            opacity: 0;
+            top: -400px;
+        }
+    }
+`
+const SecondProjectorOut2 = styled.div`
+    background-image: url(${ProjectorOpen});
+    background-repeat: no-repeat;
+    position: absolute;
+    background-size: contain;
+    z-index: 2;
+    width: 173px;
+    height: 302px;
+
+    top: calc(100vh + 400px);
+    left: calc(50vw - (210px / 2) + 260px);
+    opacity: 0;
+
+    @media (max-width: 630px) {
+        display: none;
+    }
+
+    animation: animationProj2Out2 1.4s;
+    @keyframes animationProj2Out2 {
+        0% {
+            opacity: 1;
+            top: calc((100vh - (60vh * 0.4164013015184382)) / 2 - 30px);
+        }
+        100% {
+            opacity: 0;
+            top: calc(100vh + 400px);
+        }
+    }
 `
 
 const ProjectorHolderInitial = styled.div`
@@ -185,15 +280,6 @@ const ProjectorHolderDown5 = styled.div`
 
 const ProjectorHolderUp5 = styled.div`
     ${ProjectorHolder5}
-    animation: animationProj4b 1.4s;
-    @keyframes animationProj4b {
-        100% {
-            opacity: 0;
-        }
-        0% {
-            opacity: 1;
-        }
-    }
 `
 
 const states = [
@@ -210,11 +296,21 @@ class AnimatedProjector extends Component {
             <FullScreenPosition>
                 {this.props.position === -1 ? (
                     <ProjectorHolderInitial />
-                ) : (
+                ) : this.props.position >= 0 && this.props.position <= 4 ? (
                     states[this.props.position][
                         this.props.direction === 'up' ? 0 : 1
                     ]
-                )}
+                ) : null}
+
+                {this.props.position === 2 ? (
+                    <SecondProjector />
+                ) : this.props.position === 3 &&
+                  this.props.direction === 'down' ? (
+                    <SecondProjectorOut />
+                ) : this.props.position === 1 &&
+                  this.props.direction === 'up' ? (
+                    <SecondProjectorOut2 />
+                ) : null}
             </FullScreenPosition>
         )
     }

@@ -143,7 +143,7 @@ class AppBar extends Component {
                 label="specs"
                 plain
                 onClick={() => {
-                    this.props.api.moveTo(3)
+                    this.props.api.moveTo(7)
                     if (this.state.sidebarOpen) this.onSetSidebarOpen(false)
                 }}
             />,
