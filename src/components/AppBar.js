@@ -152,7 +152,10 @@ class AppBar extends Component {
                 key="b4"
                 className="menu-item"
                 label="notify me"
-                onClick={() => {}}
+                onClick={() => {
+                    this.props.api.moveTo(8)
+                    if (this.state.sidebarOpen) this.onSetSidebarOpen(false)
+                }}
             />,
         ]
         return btns
