@@ -7,7 +7,29 @@ import TwitterIcon from '../images/icon_twitter.png'
 import Logo from '../images/logo.png'
 import Space from '../images/space3.jpg'
 
-// import Specs from '../images/specs.png'
+const Text1 = styled.h1`
+    color: #fff;
+    text-align: center;
+
+    font-weight: 500;
+    margin: 0;
+    font-size: 23px;
+    line-height: 23px;
+
+    width: calc(100% - 40px);
+    margin: 0 20px;
+
+    margin-bottom: 30px;
+`
+
+const Text2 = styled.span`
+    width: 100%;
+    font-weight: 100;
+    margin: 0;
+    font-size: 24px;
+    line-height: 40px;
+    color: #fff;
+`
 
 const Content = styled.div`
     position: absolute;
@@ -61,8 +83,8 @@ const boarderConstraints = `
 const TopBoarder = styled.div`
     ${boarderConstraints}
     left: 0;
-    top: 0;
-    height: 15vh;
+    top: -20px;
+    height: calc(15vh + 20px);
 `
 
 const BottomBoarder = styled.div`
@@ -114,6 +136,11 @@ const InputHolder = styled.div`
     margin: 0 5vw;
 `
 
+const FormHolder = styled.div`
+    margin-top: calc(42.5vh - 85px);
+    transform: translateY(-50%);
+`
+
 const InputField = styled.input`
     box-sizing: border-box;
     font-size: inherit;
@@ -131,6 +158,7 @@ const InputField = styled.input`
     border-image: initial;
     border-radius: 4px;
     width: 70vw;
+    padding-right: 115px;
 `
 
 const SubmitButton = styled.div`
@@ -155,6 +183,30 @@ const SubmitButton = styled.div`
     line-height: 30px;
 `
 
+const sharedMessageStyles = `
+    padding: 10px 5vw;
+    font-size: 15px;
+`
+
+const ErrorMessage = styled.div`
+    ${sharedMessageStyles}
+    color: #e74c3c;
+
+    & a {
+        color: #fff;
+    }
+`
+
+const SuccessMessage = styled.div`
+    color: #2ecc71;
+    ${sharedMessageStyles}
+`
+
+const SendingMessage = styled.div`
+    ${sharedMessageStyles}
+    color: #fff;
+`
+
 const CustomForm = ({ status, message, onValidated }) => {
     let email
     const submit = () =>
@@ -171,21 +223,6 @@ const CustomForm = ({ status, message, onValidated }) => {
                 display: 'inline-block',
             }}
         >
-            {status === 'sending' && (
-                <div style={{ color: 'blue' }}>sending...</div>
-            )}
-            {status === 'error' && (
-                <div
-                    style={{ color: 'red' }}
-                    dangerouslySetInnerHTML={{ __html: message }}
-                />
-            )}
-            {status === 'success' && (
-                <div
-                    style={{ color: 'green' }}
-                    dangerouslySetInnerHTML={{ __html: message }}
-                />
-            )}
             <InputHolder>
                 <InputField
                     ref={node => (email = node)}
@@ -194,6 +231,16 @@ const CustomForm = ({ status, message, onValidated }) => {
                 />
                 <SubmitButton onClick={submit}>Subscribe</SubmitButton>
             </InputHolder>
+
+            {status === 'sending' && (
+                <SendingMessage>Sending...</SendingMessage>
+            )}
+            {status === 'error' && (
+                <ErrorMessage dangerouslySetInnerHTML={{ __html: message }} />
+            )}
+            {status === 'success' && (
+                <SuccessMessage dangerouslySetInnerHTML={{ __html: message }} />
+            )}
         </div>
     )
 }
@@ -235,7 +282,14 @@ class NotifySection extends Component {
                             <LogoHolder src={Logo} />
                         </BottomBoarder>
                         <SpaceHolder>
-                            <Form />
+                            <FormHolder>
+                                <Text1>
+                                    Subscribe
+                                    <br />
+                                    <Text2>to our mailing list</Text2>
+                                </Text1>
+                                <Form />
+                            </FormHolder>
                         </SpaceHolder>
                     </ContentHolder>
                 </Content>

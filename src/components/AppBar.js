@@ -21,6 +21,7 @@ const Holder = props => (
             top: '0',
             left: '0',
             height: 44,
+            mixBlendMode: 'difference',
         }}
         {...props}
     />
