@@ -85,7 +85,7 @@ class App extends Component {
                                 this.setState({ api: fullpageApi })
                             return (
                                 <ReactFullpage.Wrapper>
-                                    <LandingSection />
+                                    <LandingSection api={this.state.api} />
                                     <StatsSection1 />
                                     <StatsSection2 />,
                                     <StatsSection3 />,

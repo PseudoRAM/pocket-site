@@ -71,6 +71,11 @@ const ArrowHolder = styled.div`
 `
 
 class LandingSection extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
     render() {
         return (
             <Section className="section">
@@ -80,7 +85,12 @@ class LandingSection extends Component {
                     <Text2>smallest</Text2>
                     <Text3>in the World</Text3>
                     <ActionButton>
-                        <Button label="notify me" onClick={() => {}} />
+                        <Button
+                            label="notify me"
+                            onClick={() => {
+                                this.props.api.moveTo(8)
+                            }}
+                        />
                     </ActionButton>
                 </LandingContent>
                 <SecondaryBG />
